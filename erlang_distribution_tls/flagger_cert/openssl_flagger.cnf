@@ -1,0 +1,50 @@
+HOME            = .
+RANDFILE        = $ENV::HOME/.rnd
+
+####################################################################
+[ req ]
+default_bits       = 2048
+default_keyfile    = serverkey.pem
+distinguished_name = server_distinguished_name
+req_extensions     = server_req_extensions
+string_mask        = utf8only
+
+####################################################################
+[ server_distinguished_name ]
+countryName         = CN(2 letter code)
+countryName_default = CN
+
+stateOrProvinceName         = Hunan (full name)
+stateOrProvinceName_default = Hunan
+
+localityName                = Shaoyang (eg, city)
+localityName_default        = Shaoyang
+
+organizationName            = Zyan CA,Limited (eg, company)
+organizationName_default    = Zyan CA,Limited
+
+organizationalUnitName         = CAM (eg, division)
+organizationalUnitName_default = CAM
+
+commonName         = flagger@flagship.lan (e.g. server FQDN or YOUR name)
+commonName_default = flagger@flagship.lan
+
+emailAddress         = zengfangbo01@163.com
+emailAddress_default = zengfangbo01@163.com
+
+####################################################################
+[ server_req_extensions ]
+
+subjectKeyIdentifier = hash
+basicConstraints     = CA:FALSE
+keyUsage             = digitalSignature, keyEncipherment
+subjectAltName       = @alternate_names
+nsComment            = "OpenSSL Generated Certificate"
+
+####################################################################
+[ alternate_names ]
+
+DNS.1  = flagger@flagship.lan
+DNS.2  = flagger@flagship.lan.com
+DNS.3  = flagship.lan.com
+DNS.4  = flagship.lan
